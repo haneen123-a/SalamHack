@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Documentation Generator</title>
+    <link rel="stylesheet" href="/static/css/Document.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<div class="stars">
+<body>
+    <div style="margin: auto; margin-top: 30px;" class="container">
+        <div class="navbar">
+            <h1 style="color:  hsl(40, 100%, 55%); margin: auto; margin-top: 10px; margin-bottom: 10px;"><i class='bx bx-file bx-flashing' ></i> Documentation Generator</h1>
+        </div>
+        <div id="error-container"></div>
+        <div class="chat-container" id="chat-container"></div>
+        <div id="loading-indicator">
+            <div class="spinner"></div>
+            <p>Generating documentation...</p>
+        </div>
+        <form id="doc-generator">
+            <select id="language" name="language" required>
+                <option value="" disabled selected>Select Language</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+            </select>
+            <textarea id="code" name="code" placeholder="Write your code here..." required></textarea>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <input type="number" id="max_length" name="max_length" value="300" min="100" max="1000">
+                <button type="submit" id="submit-btn">Generate Documentation</button>
+            </div>
+        </form>
+    </div>
+<script src="/static/js/ScriptDocument.js"></script>
+</body>
+</html>

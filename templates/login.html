@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Python Documentation Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(90deg, #1b292a, #0aa2e8);
+            color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background: linear-gradient(270deg, #1b292a, #0aa2e8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #f4f7f9;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f4f7f9;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #1A3C40;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f8f8f8; /* Added background color for input fields */
+            color: #333; /* Added text color for input fields */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease; /* Added transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            color: #f4f7f9;
+        }
+
+        .signup-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Added transition for hover effect */
+        }
+
+        .signup-link a:hover {
+          color: #407543;
+        }
+
+        .error-message {
+            color: #ff4444;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div class="error-message" id="error-message"></div>
+        </form>
+        <div class="signup-link">
+            Don't have an account? <a href="/auth/signup">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#login-form").submit(function(e) {
+                e.preventDefault();
+
+                const username = $("#username").val();
+                const password = $("#password").val();
+                const errorMessage = $("#error-message");
+
+                $.ajax({
+                    url: "/auth/login",
+                    method: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        username: username,
+                        password: password
+                    }),
+                    success: function(response) {
+                        errorMessage.text(""); // Clear any previous error messages
+                        window.location.href = "/"; // Redirect to the main page
+                    },
+                    error: function(xhr, status, error) {
+                        const errorData = xhr.responseJSON;
+                        if (errorData && errorData.error) {
+                          errorMessage.text(errorData.error);
+                        } else {
+                          errorMessage.text("Login failed. Please try again.");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

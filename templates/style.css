@@ -1,0 +1,232 @@
+/* Common styles across all pages */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #1b292a, #0aa2e8);
+    color: #f4f7f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: linear-gradient(270deg, #1b292a, #0aa2e8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #1A3C40;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1A3C40;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #1A3C40;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+    background: #2a2d34;
+    color: #f4f7f9;
+    border: 1px solid #ccc;
+    font-family: 'Courier New', monospace;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #ff4444;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: #4CAF50;
+    margin-top: 10px;
+}
+
+.login-link, .signup-link {
+    margin-top: 20px;
+    color: #1A3C40;
+}
+
+.login-link a, .signup-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover, .signup-link a:hover {
+    color: #407543;
+}
+
+/* Index-specific styles */
+.index-container {
+    width: 80%;
+    max-width: 1200px;
+    background: linear-gradient(180deg, #1b292a, #0aa2e8);
+    color: #fcfcfc;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #1b292a;
+    color: #f4f7f9;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 10px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-link, .logout-link {
+    text-decoration: none;
+    color: #f4f7f9;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.profile-link:hover {
+    background: #4CAF50;
+    transform: translateY(-2px);
+}
+
+.logout-link:hover {
+    color: #4CAF50;
+    transform: translateY(-2px);
+}
+
+.chat-container {
+    background: #f1f6f9;
+    border-radius: 12px;
+    padding: 20px;
+    height: 350px;
+    overflow-y: auto;
+    margin-bottom: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.message {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.user-message {
+    background-color: #4CAF50;
+    color: white;
+    margin-left: 20%;
+    font-size: large;
+}
+
+.bot-message {
+    background-color: #FFB703;
+    color: #023047;
+    margin-right: 20%;
+    font-size: medium;
+}
+
+#loading-indicator {
+    display: none;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Signup-specific styles */
+.date-time {
+    font-size: 0.9em;
+    color: #658b8d;
+    margin-bottom: 20px;
+}
+
+/* Profile-specific styles */
+.profile-container {
+    width: 500px;
+}
+
+.back-button {
+    background-color: #666;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
